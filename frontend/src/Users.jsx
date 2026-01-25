@@ -8,12 +8,20 @@ function Users(){
     const [users,setUsers]=useState([
     { name: "Shweta" , email: "s1@gmail.com" }
     ])
-    
+    //to see the all users on view page
     useEffect(() => { 
         axios.get('http://localhost:3001/users')
         .then(result => setUsers(result.data))
         .catch(err => console.log(err))
     },[])
+//to dlt the user by id:
+    const handleDelete = (id) => {
+        axios.delete('http://localhost:3001/deleteUser/'+id)
+        .then(result => {console.log(result)
+            window.location.reload()
+            })
+        .catch(err => console.log(err))
+    }
     return(
         <div className="d-flex vh-100 bg-dark justify-content-center align-items-center">
             <div className='w-50 bg-white rounded p-3'>

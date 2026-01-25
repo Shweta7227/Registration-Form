@@ -16,8 +16,17 @@ mongoose.connect("mongodb://127.0.0.1:27017/registeration")
     .then(users => res.json(users))
     .catch(err => res.json(err))
     })
-//API:To submit the user details to db 
 
+    //for deletion od record
+app.delete('/deleteUser/:id', (req, res) =>{
+    const id= req.params.id;
+    UserModel.findByIdAndDelete({_id: id})
+    .then(users => res.json(res))
+    .catch(err => res.json(err))
+})
+
+
+//API:To submit the user details to db 
 app.post("/createUser", (req,res) => {
     UserModel.create(req.body)
     .then(users => res.json(users))
