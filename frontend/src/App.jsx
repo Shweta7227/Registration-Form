@@ -9,7 +9,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Form />} />
         <Route path="/users" element={<Users />} />
-        <Route path='/update' element={<Update />} />
+        <Route path='/update/:id' element={<Update />} />
       </Routes>
     </BrowserRouter>
   )

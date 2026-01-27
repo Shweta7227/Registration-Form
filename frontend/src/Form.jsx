@@ -21,12 +21,8 @@ function Form() {
   const [pStreet, setPStreet] = useState("");
   const [pCity, setPCity] = useState("");
   const [pState, setPState] = useState("");
-  const [pPincode, setPPincode] = useState("");
+  const [pPinCode, setPPinCode] = useState("");
 
-//   const [sStreet, setSStreet] = useState("");
-//   const [sCity, setSCity] = useState("");
-//   const [sState, setSState] = useState("");
-//   const [sPincode, setSPincode] = useState("");
 
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -123,14 +119,9 @@ function Form() {
           street: pStreet,
           city: pCity,
           state: pState,
-          pincode: pPincode,
+          pinCode: pPinCode,
         },
-        // secondaryAddress: {
-        //   street: sStreet,
-        //   city: sCity,
-        //   state: sState,
-        //   pincode: sPincode,
-        // },
+    
         password,
         terms,
       })
@@ -288,8 +279,8 @@ function Form() {
                 <input
                     className="form-control"
                     placeholder="Pincode"
-                    value={pPincode}
-                    onChange={(e) => setPPincode(e.target.value)}
+                    value={pPinCode}
+                    onChange={(e) => setPPinCode(e.target.value)}
                 />
                 </div>
             </div>

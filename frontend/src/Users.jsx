@@ -47,7 +47,7 @@ function Users(){
                             <td>{fullName || "No Name"}</td> 
                             <td>{user.email}</td>
                             <td>
-                            <button className="btn btn-secondary">Update</button>
+                            <Link to={`/update/${user._id}`} className='btn btn-secondary'>Update </Link>
                             <button
                                 className='btn btn-dark'
                                 onClick={() => handleDelete(user._id)}
