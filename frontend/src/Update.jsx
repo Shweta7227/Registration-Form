@@ -107,10 +107,10 @@ function Update() {
         setEmail(result.data.email || "");
         setDob(result.data.dob?.slice(0, 10) || "");
         setAge(result.data.age || "");
-        setPStreet(result.data.pStreet || "");
-        setPCity(result.data.pCity || "");
-        setPState(result.data.pState || "");
-        setPPinCode(result.data.pPinCode || "");
+        setPStreet(result.data.primaryAddress?.street || "");
+        setPCity(result.data.primaryAddress?.city || "");
+        setPState(result.data.primaryAddress?.state || "");
+        setPPinCode(result.data.primaryAddress?.pinCode || "");
         setTerms(result.data.terms || false);
       })
       .catch(err => console.log(err));
@@ -134,18 +134,37 @@ function Update() {
         });
     }
   return (
-    <div className="d-flex vh-100 bg-secondary justify-content-center align-items-center">
-      <div className="w-75 bg-white rounded p-4 overflow-auto">
+    <div
+        className="min-vh-100 d-flex justify-content-center align-items-start py-5"
+      style={{
+      background: "linear-gradient(135deg, #f6f8fb, #d6caca)",
+      fontFamily: "'Inter', sans-serif",
+    }}
+    >
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-lg-10 col-xl-9">
+            {/* Card */}
+            <div
+                className="bg-white rounded-4 shadow-lg p-5"
+                style={{
+                borderLeft: "6px solid #111827",
+                transition: "all 0.3s ease",
+                maxWidth: "900px",
+                width: "100%",
+                }}
+            >
 
         {/* Heading */}
-        <h3 className="text-center mb-4">Update Details</h3>
+        <h3 className="text-center fw-bold mb-5"
+              style={{ color: "#111827", letterSpacing: "0.5px" }}>Update Details</h3>
 
         <form onSubmit={Updates}>
 
           {/* Name */}
-          <div className="row mb-3">
+          <div className="row g-3 mb-4">
             <div className="col-md-4">
-              <label>First Name *</label>
+              <label className="form-label fw-semibold">First Name <span style={{ color: "#ef4444" }}>*</span></label>
               <input className="form-control" 
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
@@ -155,7 +174,7 @@ function Update() {
             </div>
 
             <div className="col-md-4">
-              <label>Middle Name</label>
+              <label className="form-label fw-semibold">Middle Name</label>
               <input className="form-control" 
                 value={middleName}
                     onChange={(e) => setMiddleName(e.target.value)}
@@ -164,7 +183,7 @@ function Update() {
             </div>
 
             <div className="col-md-4">
-              <label>Last Name *</label>
+              <label className="form-label fw-semibold">Last Name <span style={{ color: "#ef4444" }}>*</span></label>
               <input className="form-control" 
                value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
@@ -177,7 +196,7 @@ function Update() {
           {/* Contact */}
           <div className="row mb-3">
             <div className="col-md-3">
-              <label>Country Code</label>
+              <label className="form-label fw-semibold">Country Code</label>
               <select className="form-control"
                 value={countryCode}
                     onChange={(e) => setCountryCode(e.target.value)}
@@ -188,7 +207,7 @@ function Update() {
             </div>
 
             <div className="col-md-5">
-              <label>Mobile *</label>
+              <label className="form-label fw-semibold">Mobile <span style={{ color: "#ef4444" }}>*</span></label>
               <input className="form-control" 
                 value={mobile}
                 onChange={(e) => setMobile(e.target.value)}
@@ -198,7 +217,7 @@ function Update() {
             </div>
 
             <div className="col-md-4">
-              <label>Gender *</label>
+              <label className="form-label fw-semibold">Gender <span style={{ color: "#ef4444" }}>*</span></label>
               <select className="form-control" 
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}
@@ -216,7 +235,7 @@ function Update() {
           {/* Email / DOB / Age */}
           <div className="row mb-3">
             <div className="col-md-5">
-              <label>Email *</label>
+              <label className="form-label fw-semibold">Email <span style={{ color: "#ef4444" }}>*</span></label>
               <input type="email" className="form-control" 
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -226,7 +245,7 @@ function Update() {
             </div>
 
             <div className="col-md-4">
-              <label>Date of Birth *</label>
+              <label className="form-label fw-semibold">Date of Birth <span style={{ color: "#ef4444" }}>*</span></label>
               <input type="date" className="form-control" 
                value={dob}
                 onChange={(e) => setDob(e.target.value)}
@@ -236,7 +255,7 @@ function Update() {
             </div>
 
             <div className="col-md-3">
-              <label>Age *</label>
+              <label className="form-label fw-semibold">Age <span style={{ color: "#ef4444" }}>*</span></label>
               <input type="number" className="form-control"
                 value={age}
                     onChange={(e) => setAge(e.target.value)}
@@ -247,7 +266,7 @@ function Update() {
           </div>
 
           {/* Address */}
-          <h6 className="text-success">Address</h6>
+          <h6 className="text-dark fw-bold mt-5 mb-3 border-bottom pb-2" >Address</h6>
           <div className="row mb-3">
             <div className="col-md-8">
               <input className="form-control" placeholder="Street" 
@@ -281,7 +300,7 @@ function Update() {
           {/* Password */}
           <div className="row mb-3">
             <div className="col-md-6">
-              <label>Password *</label>
+              <label className="form-label fw-semibold">New Password <span style={{ color: "#ef4444" }}>*</span></label>
               <input type="password" className="form-control" 
                value={password}
                     onChange={(e) => setPassword(e.target.value)}
@@ -291,7 +310,7 @@ function Update() {
             </div>
 
             <div className="col-md-6">
-              <label>Confirm Password *</label>
+              <label className="form-label fw-semibold">Confirm Password <span style={{ color: "#ef4444" }}>*</span></label>
               <input type="password" className="form-control" 
                value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
@@ -303,8 +322,9 @@ function Update() {
           </div>
 
           {/* Captcha */}
-          <label>
+          <label className="form-label fw-semibold">
             Solve: {num1} {operator} {num2} = ?
+            <span style={{ color: "#ef4444" }}>*</span>
           </label>
           <input className="form-control mb-2" 
             value={captchaInput}
@@ -323,12 +343,28 @@ function Update() {
 
           </div>
 
-          {/* Button */}
-          <button className="btn btn-dark">Update</button>
+              {/* Submit */}
+              <div className="text-center mt-5">
+                <button
+                  type="submit"
+                  className="btn btn-lg px-5 shadow"
+                  style={{
+                    background: "linear-gradient(to right, #111827, #374151)",
+                    color: "white",
+                    border: "none",
+                  }}
+                >
+                  Update
+                </button>
+              </div>
 
         </form>
       </div>
     </div>
+    </div>
+    </div>
+    </div>
+  
   );
 }
 

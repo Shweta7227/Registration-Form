@@ -22,8 +22,9 @@ app.use(express.json())
             lastName: req.body.lastName, countryCode: req.body.countryCode, 
             mobile: req.body.mobile, gender: req.body.gender,
             email: req.body.email, dob: req.body.dob, age: req.body.age, 
-            pStreet: req.body.pStreet, pCity: req.body.pCity, pState: req.body.pState, 
-            pPinCode: req.body.pPinCode,password: req.body.password, 
+           primaryAddress: {street: req.body.pStreet,city: req.body.pCity,
+            state: req.body.pState, pinCode: req.body.pPinCode}, 
+            // password: req.body.password, 
             terms: req.body.terms
          } )
         .then(users => res.json(users))

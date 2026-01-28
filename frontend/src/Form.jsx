@@ -132,214 +132,293 @@ function Form() {
   /* =======================
      UI
   ======================= */
-  return (
-    <div className="d-flex vh-100 bg-secondary justify-content-center align-items-center">
-      <div className="w-75 bg-white rounded p-4 overflow-auto">
-        <h3 className="text-center mb-4">Client Details</h3>
-            <form onSubmit={Submit}>
-            {/* Name */}
-            <div className="row mb-3">
-                <div className="col-md-4">
-                <label>First Name *</label>
-                <input
-                    className="form-control"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                />
-                {errors.firstName && <small className="text-danger">{errors.firstName}</small>}
-                </div>
-
-                <div className="col-md-4">
-                <label>Middle Name</label>
-                <input
-                    className="form-control"
-                    value={middleName}
-                    onChange={(e) => setMiddleName(e.target.value)}
-                />
-                </div>
-
-                <div className="col-md-4">
-                <label>Last Name *</label>
-                <input
-                    className="form-control"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                />
-                {errors.lastName && <small className="text-danger">{errors.lastName}</small>}
-                </div>
-            </div>
-
-            {/* Contact */}
-            <div className="row mb-3">
-                <div className="col-md-3">
-                <label>Country Code</label>
-                <select
-                    className="form-control"
-                    value={countryCode}
-                    onChange={(e) => setCountryCode(e.target.value)}
+    return (
+    <div
+        className="min-vh-100 d-flex justify-content-center align-items-start py-5"
+        style={{
+        background: "linear-gradient(to right, #f5f7fa, #c3cfe2)",
+        fontFamily: "'Inter', sans-serif",
+        }}
+    >
+        <div className="container">
+        <div className="row justify-content-center">
+            <div className="col-lg-10 col-xl-9">
+            {/* Card */}
+            <div
+                className="bg-white rounded-4 shadow-lg p-5"
+                style={{
+                borderLeft: "6px solid #4f46e5",
+                transition: "all 0.3s ease",
+                maxWidth: "900px",
+                width: "100%",
+                }}
+            >
+                {/* Header */}
+                <h3
+                className="text-center fw-bold mb-5"
+                style={{ color: "#4f46e5", letterSpacing: "0.5px" }}
                 >
-                    <option value="+91">IN +91</option>
-                    <option value="+1">US +1</option>
-                </select>
+                Client Details
+                </h3>
+
+                <form onSubmit={Submit}>
+                {/* Name */}
+                <div className="row g-3 mb-4">
+                    <div className="col-md-6">
+                    <label className="form-label fw-semibold">First Name <span style={{ color: "#ef4444" }}>*</span></label>
+                    <input
+                        className="form-control border-2 border-gray-300 shadow-sm"
+                        placeholder="Enter first name"
+                        value={firstName}
+                        onChange={(e) => setFirstName(e.target.value)}
+                    />
+                    {errors.firstName && (
+                        <small className="text-danger">{errors.firstName}</small>
+                    )}
+                    </div>
+                    <div className="col-md-6">
+                    <label className="form-label fw-semibold">Middle Name</label>
+                    <input
+                        className="form-control border-2 border-gray-300 shadow-sm"
+                        placeholder="Enter middle name"
+                        value={middleName}
+                        onChange={(e) => setMiddleName(e.target.value)}
+                    />
+                    </div>
                 </div>
 
-                <div className="col-md-5">
-                <label>Mobile *</label>
-                <input
-                    className="form-control"
-                    value={mobile}
-                    onChange={(e) => setMobile(e.target.value)}
-                />
-                {errors.mobile && <small className="text-danger">{errors.mobile}</small>}
+                <div className="row g-3 mb-4">
+                    <div className="col-md-6">
+                    <label className="form-label fw-semibold">Last Name <span style={{ color: "#ef4444" }}>*</span></label>
+                    <input
+                        className="form-control border-2 border-gray-300 shadow-sm"
+                        placeholder="Enter last name"
+                        value={lastName}
+                        onChange={(e) => setLastName(e.target.value)}
+                    />
+                    {errors.lastName && (
+                        <small className="text-danger">{errors.lastName}</small>
+                    )}
+                    </div>
                 </div>
 
-                <div className="col-md-4">
-                <label>Gender *</label>
-                <select
-                    className="form-control"
-                    value={gender}
-                    onChange={(e) => setGender(e.target.value)}
-                >
-                    <option value="">Select</option>
-                    <option>Male</option>
-                    <option>Female</option>
-                    <option>Other</option>
-                </select>
-                {errors.gender && <small className="text-danger">{errors.gender}</small>}
+                {/* Contact */}
+                <div className="row g-3 mb-4">
+                    <div className="col-md-4">
+                    <label className="form-label fw-semibold">Country Code</label>
+                    <select
+                        className="form-select border-2 border-gray-300 shadow-sm"
+                        value={countryCode}
+                        onChange={(e) => setCountryCode(e.target.value)}
+                    >
+                        <option value="+91">IN +91</option>
+                        <option value="+1">US +1</option>
+                    </select>
+                    </div>
+                    <div className="col-md-8">
+                    <label className="form-label fw-semibold">Mobile <span style={{ color: "#ef4444" }}>*</span></label>
+                    <input
+                        className="form-control border-2 border-gray-300 shadow-sm"
+                        placeholder="Enter mobile number"
+                        value={mobile}
+                        onChange={(e) => setMobile(e.target.value)}
+                    />
+                    {errors.mobile && (
+                        <small className="text-danger">{errors.mobile}</small>
+                    )}
+                    </div>
                 </div>
+
+                {/* Gender */}
+                <div className="row g-3 mb-4">
+                    <div className="col-md-6">
+                    <label className="form-label fw-semibold">Gender <span style={{ color: "#ef4444" }}>*</span></label>
+                    <select
+                        className="form-select border-2 border-gray-300 shadow-sm"
+                        value={gender}
+                        onChange={(e) => setGender(e.target.value)}
+                    >
+                        <option value="">Select</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                    {errors.gender && (
+                        <small className="text-danger">{errors.gender}</small>
+                    )}
+                    </div>
+                </div>
+
+                {/* Email / DOB / Age */}
+                <div className="row g-3 mb-4">
+                    <div className="col-md-6">
+                    <label className="form-label fw-semibold">Email <span style={{ color: "#ef4444" }}>*</span></label>
+                    <input
+                        type="email"
+                        className="form-control border-2 border-gray-300 shadow-sm"
+                        placeholder="Enter email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                    {errors.email && (
+                        <small className="text-danger">{errors.email}</small>
+                    )}
+                    </div>
+                    <div className="col-md-6">
+                    <label className="form-label fw-semibold">Date of Birth <span style={{ color: "#ef4444" }}>*</span></label>
+                    <input
+                        type="date"
+                        className="form-control border-2 border-gray-300 shadow-sm"
+                        value={dob}
+                        onChange={(e) => setDob(e.target.value)}
+                    />
+                    {errors.dob && (
+                        <small className="text-danger">{errors.dob}</small>
+                    )}
+                    </div>
+                </div>
+
+                <div className="row g-3 mb-4">
+                    <div className="col-md-4">
+                    <label className="form-label fw-semibold">Age <span style={{ color: "#ef4444" }}>*</span></label>
+                    <input
+                        type="number"
+                        className="form-control border-2 border-gray-300 shadow-sm"
+                        value={age}
+                        onChange={(e) => setAge(e.target.value)}
+                    />
+                    {errors.age && (
+                        <small className="text-danger">{errors.age}</small>
+                    )}
+                    </div>
+                </div>
+
+                {/* Address Section */}
+                <h6 className="text-primary fw-bold mt-5 mb-3 border-bottom pb-2">
+                    Address
+                </h6>
+
+                <div className="row g-3 mb-3">
+                    <div className="col-md-8">
+                    <input
+                        className="form-control border-2 border-gray-300 shadow-sm"
+                        placeholder="Street"
+                        value={pStreet}
+                        onChange={(e) => setPStreet(e.target.value)}
+                    />
+                    </div>
+                    <div className="col-md-4">
+                    <input
+                        className="form-control border-2 border-gray-300 shadow-sm"
+                        placeholder="City"
+                        value={pCity}
+                        onChange={(e) => setPCity(e.target.value)}
+                    />
+                    </div>
+                </div>
+
+                <div className="row g-3 mb-4">
+                    <div className="col-md-6">
+                    <input
+                        className="form-control border-2 border-gray-300 shadow-sm"
+                        placeholder="State"
+                        value={pState}
+                        onChange={(e) => setPState(e.target.value)}
+                    />
+                    </div>
+                    <div className="col-md-6">
+                    <input
+                        className="form-control border-2 border-gray-300 shadow-sm"
+                        placeholder="Pincode"
+                        value={pPinCode}
+                        onChange={(e) => setPPinCode(e.target.value)}
+                    />
+                    </div>
+                </div>
+
+                {/* Password */}
+                <div className="row g-3 mb-4">
+                    <div className="col-md-6">
+                    <label className="form-label fw-semibold">Password <span style={{ color: "#ef4444" }}>*</span></label>
+                    <input
+                        type="password"
+                        className="form-control border-2 border-gray-300 shadow-sm"
+                        placeholder="Enter password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    {errors.password && (
+                        <small className="text-danger">{errors.password}</small>
+                    )}
+                    </div>
+                    <div className="col-md-6">
+                    <label className="form-label fw-semibold">Confirm Password <span style={{ color: "#ef4444" }}>*</span></label>
+                    <input
+                        type="password"
+                        className="form-control border-2 border-gray-300 shadow-sm"
+                        placeholder="Confirm password"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                    />
+                    {errors.confirmPassword && (
+                        <small className="text-danger">{errors.confirmPassword}</small>
+                    )}
+                    </div>
+                </div>
+
+                {/* Captcha */}
+                <div className="mb-4">
+                    <label className="form-label fw-semibold">
+                    Solve: {num1} {operator} {num2} = ?
+                    </label>
+                    <input
+                    className="form-control border-2 border-gray-300 shadow-sm"
+                    value={captchaInput}
+                    onChange={(e) => setCaptchaInput(e.target.value)}
+                    />
+                    {errors.captcha && (
+                    <small className="text-danger">{errors.captcha}</small>
+                    )}
+                </div>
+
+                {/* Terms */}
+                <div className="form-check mb-4">
+                    <input
+                    className="form-check-input"
+                    type="checkbox"
+                    checked={terms}
+                    onChange={(e) => setTerms(e.target.checked)}
+                    />
+                    <label className="form-check-label fw-semibold">
+                    I agree to terms
+                    </label>
+                    {errors.terms && <div className="text-danger">{errors.terms}</div>}
+                </div>
+
+                {/* Submit */}
+                <div className="text-center">
+                    <button
+                    type="submit"
+                    className="btn btn-primary btn-lg px-5 shadow"
+                    style={{
+                        background: "linear-gradient(to right, #4f46e5, #3b82f6)",
+                        border: "none",
+                    }}
+                    >
+                    Save
+                    </button>
+                </div>
+                </form>
             </div>
-
-            {/* Email / DOB / Age */}
-            <div className="row mb-3">
-                <div className="col-md-5">
-                <label>Email *</label>
-                <input
-                    type="email"
-                    className="form-control"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                {errors.email && <small className="text-danger">{errors.email}</small>}
-                </div>
-
-                <div className="col-md-4">
-                <label>Date of Birth *</label>
-                <input
-                    type="date"
-                    className="form-control"
-                    value={dob}
-                    onChange={(e) => setDob(e.target.value)}
-                />
-                {errors.dob && <small className="text-danger">{errors.dob}</small>}
-                </div>
-
-                <div className="col-md-3">
-                <label>Age *</label>
-                <input
-                    type="number"
-                    className="form-control"
-                    value={age}
-                    onChange={(e) => setAge(e.target.value)}
-                />
-                {errors.age && <small className="text-danger">{errors.age}</small>}
-                </div>
             </div>
-
-            {/* Primary Address */}
-            <h6 className="text-success"> Address</h6>
-            <div className="row mb-3">
-                <div className="col-md-8">
-                <input
-                    className="form-control"
-                    placeholder="Street"
-                    value={pStreet}
-                    onChange={(e) => setPStreet(e.target.value)}
-                />
-                </div>
-                <div className="col-md-4">
-                <input
-                    className="form-control"
-                    placeholder="City"
-                    value={pCity}
-                    onChange={(e) => setPCity(e.target.value)}
-                />
-                </div>
-            </div>
-
-            <div className="row mb-3">
-                <div className="col-md-6">
-                <input
-                    className="form-control"
-                    placeholder="State"
-                    value={pState}
-                    onChange={(e) => setPState(e.target.value)}
-                />
-                </div>
-                <div className="col-md-6">
-                <input
-                    className="form-control"
-                    placeholder="Pincode"
-                    value={pPinCode}
-                    onChange={(e) => setPPinCode(e.target.value)}
-                />
-                </div>
-            </div>
-
-            {/* Password */}
-            <div className="row mb-3">
-                <div className="col-md-6">
-                <label>Password *</label>
-                <input
-                    type="password"
-                    className="form-control"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                {errors.password && <small className="text-danger">{errors.password}</small>}
-                </div>
-
-                <div className="col-md-6">
-                <label>Confirm Password *</label>
-                <input
-                    type="password"
-                    className="form-control"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                />
-                {errors.confirmPassword && (
-                    <small className="text-danger">{errors.confirmPassword}</small>
-                )}
-                </div>
-            </div>
-
-            {/* Captcha */}
-            <label>
-                Solve: {num1} {operator} {num2} = ?
-            </label>
-            <input
-                className="form-control mb-1"
-                value={captchaInput}
-                onChange={(e) => setCaptchaInput(e.target.value)}
-            />
-            {errors.captcha && <small className="text-danger">{errors.captcha}</small>}
-
-            {/* Terms */}
-            <div className="mt-3">
-                <input
-                type="checkbox"
-                checked={terms}
-                onChange={(e) => setTerms(e.target.checked)}
-                />{" "}
-                I agree to terms
-                {errors.terms && <div className="text-danger">{errors.terms}</div>}
-            </div>
-
-            <button className="btn btn-dark mt-3">Save</button>
-            </form>
-
-      </div>
+        </div>
+        </div>
     </div>
-  );
+    );
+
+
+
+
 }
 
 export default Form;
